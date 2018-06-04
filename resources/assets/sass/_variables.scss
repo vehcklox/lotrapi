@@ -1,8 +1,15 @@
 
 // Body
-$body-bg: #f5f8fa;
+$body-bg: rgb(35, 35, 35);
 
 // Typography
-$font-family-sans-serif: "Raleway", sans-serif;
+$font-family-sans-serif: "Lato", sans-serif;
+$font-family-serif: "Cinzel", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+// Colors
+$dark-gray: rgb(89, 89, 89);
+$gray: rgb(149, 149, 149);
+$blue: rgb(24, 148, 184);
+$dark-blue: rgb(0, 107, 166);

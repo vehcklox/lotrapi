@@ -1,95 +1,88 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>LOTR-API</title>
+</head>
+<link rel="stylesheet" href="css/app.css">
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-collapse collapse w-100 order-3 order-md-0 dual-collapse2">
+        <ul class="navbar-nav nav-pills mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Tweet</a>
+            </li>
+        </ul>
+    </div>
+    <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto" href="#">LOTR API</a>
+    </div>
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse w-100 order-1 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Documentation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container api-info my-5">
+    <div class="row justify-content-center">
+        <div class="col-8 text-center">
+            <h3>LOTR API</h3>
+            <p>This is a RESTful API housing all* of the Lord of the Rings data you could want.<br>
+                You can this data for RPG games, character sheets, or anything requring LOTR data.<br></p>
+            <p><strong>Characters, Books, Films, Species, and Locations</strong></p>
+            <p class="big-text"><strong>Includes data from the Hobbit!</strong></p>
+            <p>Based on <a href="https://swapi.co">swapi.co</a>.</p>
         </div>
-    </body>
+    </div>
+</div>
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-9">
+            <form action="" method="get">
+                @csrf
+                <div class="input-group input-group-lg mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="base-url">https://lotr.app/api/v1/</span>
+                    </div>
+                    <input type="text" class="form-control" name="query-data" id="query-data" aria-describedby="query-data">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit" value="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container my-3">
+    <div class="card w-100">
+        <div class="card-header">
+            API Example
+        </div>
+        <div class="card-body api-sandbox">
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 disclaimer text-center">
+            <p><small>*Okay, Okay... You caught me. That's a bold statement. If you see something missing let me know on the <a href="https://www.github.com/vehcklox/lotrapi">git repo</a> or <a href="mailto:adrien@maranville.io">email me</a></small></p>
+        </div>
+    </div>
+</div>
+<script src="js/app.js"></script>
+</body>
 </html>
