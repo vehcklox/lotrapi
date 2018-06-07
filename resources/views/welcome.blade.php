@@ -79,7 +79,9 @@
 <div class="container">
     <div class="row">
         <div class="col-12 disclaimer text-center">
-            <p><small>*Okay, Okay... You caught me. That's a bold statement. If you see something missing let me know on the <a href="https://www.github.com/vehcklox/lotrapi">git repo</a> or <a href="mailto:adrien@maranville.io">email me</a></small></p>
+            <p><small>*Okay, Okay... You caught me. That's a bold statement. If you see something missing let me know on the
+                    <a href="https://www.github.com/vehcklox/lotrapi">git repo</a>
+                    or <a href="mailto:adrien@maranville.io">email me</a></small></p>
         </div>
     </div>
 </div>
