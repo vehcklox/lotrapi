@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Person;
+use App\Character;
 use Illuminate\Http\Request;
 
-class PersonController extends Controller
+class CharacterController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+//        dd($request);
+        $characters = \App\Character::with(['languages:name', 'books:title', 'films:title'])->get();
+        $response = response($characters, 200);
+        return $response;
     }
 
     /**
@@ -41,10 +45,10 @@ class PersonController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Person  $person
+     * @param  \App\Character  $person
      * @return \Illuminate\Http\Response
      */
-    public function show(Person $person)
+    public function show(Character $person)
     {
         //
     }
@@ -52,10 +56,10 @@ class PersonController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Person  $person
+     * @param  \App\Character  $person
      * @return \Illuminate\Http\Response
      */
-    public function edit(Person $person)
+    public function edit(Character $person)
     {
         //
     }
@@ -64,10 +68,10 @@ class PersonController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Person  $person
+     * @param  \App\Character  $person
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Person $person)
+    public function update(Request $request, Character $person)
     {
         //
     }
@@ -75,10 +79,10 @@ class PersonController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Person  $person
+     * @param  \App\Character  $person
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Person $person)
+    public function destroy(Character $person)
     {
         //
     }
