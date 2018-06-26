@@ -13704,7 +13704,8 @@ __webpack_require__(5);
 var axiosConfig = {
     headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
     }
 };
 
