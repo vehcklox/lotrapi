@@ -10436,6 +10436,7 @@ strong {
 
 .api-sandbox {
   height: 400px;
+  overflow: scroll;
 }
 
 .disclaimer {

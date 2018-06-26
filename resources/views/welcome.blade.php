@@ -52,14 +52,13 @@
     <div class="row justify-content-center">
         <div class="col-sm-12 col-md-9">
             <form action="" method="get">
-                @csrf
                 <div class="input-group input-group-lg mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="base-url">https://lotr.app/api/v1/</span>
                     </div>
                     <input type="text" class="form-control" name="query-data" id="query-data" aria-describedby="query-data">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="submit" value="submit">Submit</button>
+                        <button class="btn btn-outline-secondary api-get" type="submit" value="submit">Submit</button>
                     </div>
                 </div>
             </form>
@@ -72,7 +71,7 @@
             API Example
         </div>
         <div class="card-body api-sandbox">
-
+            <pre id="apiSpan"></pre>
         </div>
     </div>
 </div>
@@ -86,5 +85,13 @@
     </div>
 </div>
 <script src="js/app.js"></script>
+<script>
+    $(".api-get").click(
+        function(event) {
+            event.preventDefault();
+            window.apiRequest('/characters');
+        }
+    );
+</script>
 </body>
 </html>
