@@ -86,6 +86,11 @@
 </div>
 <script src="js/app.js"></script>
 <script>
+    $(document).ready(
+        function () {
+            window.apiRequest('/characters');
+        }
+    )
     $(".api-get").click(
         function(event) {
             event.preventDefault();
