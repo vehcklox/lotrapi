@@ -15,9 +15,8 @@ class CharacterController extends Controller
      */
     public function index(Request $request)
     {
-//        dd($request);
         $characters = \App\Character::with(['languages:name', 'books:title', 'films:title'])->get();
-        $response = response($characters, 200);
+        $response = response()->json($characters, 200);
         return $response;
     }
 

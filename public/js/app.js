@@ -13711,8 +13711,9 @@ var axiosConfig = {
 window.apiRequest = function apiGetRequest(customUri) {
     axios.get("http://lotrapi.test" + '/api/v1' + customUri, axiosConfig).then(function (response) {
         var apiDisplay = document.getElementById('apiSpan');
-        console.log(response.data);
-        apiDisplay.innerHTML = response.data;
+        var data = response.data;
+        console.log(data);
+        apiDisplay.innerHTML = data;
     });
 };
 

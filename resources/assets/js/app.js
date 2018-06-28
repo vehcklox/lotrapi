@@ -20,7 +20,8 @@ window.apiRequest = function apiGetRequest(customUri) {
     axios.get(process.env.MIX_APP_URL + '/api/v1' + customUri, axiosConfig)
         .then(function (response) {
             let apiDisplay = document.getElementById('apiSpan');
-            console.log(response.data)
-            apiDisplay.innerHTML=response.data;
+            let data = response.data;
+            console.log(data);
+            apiDisplay.innerHTML=data;
         })
 }
