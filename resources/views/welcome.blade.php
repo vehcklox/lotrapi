@@ -71,7 +71,9 @@
             API Example
         </div>
         <div class="card-body api-sandbox">
-            <pre id="apiSpan"></pre>
+            <pre class="prettyprint">
+                {!! $response->getContent() !!}
+            </pre>
         </div>
     </div>
 </div>
@@ -85,18 +87,5 @@
     </div>
 </div>
 <script src="js/app.js"></script>
-<script>
-    $(document).ready(
-        function () {
-            window.apiRequest('/characters');
-        }
-    )
-    $(".api-get").click(
-        function(event) {
-            event.preventDefault();
-            window.apiRequest('/characters');
-        }
-    );
-</script>
 </body>
 </html>

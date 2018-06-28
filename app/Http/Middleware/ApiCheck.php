@@ -19,9 +19,15 @@ class ApiCheck
         $response = $next($request);
 
         $response->setContent($this->prettify($response));
-        $response->setContent($this->linkify($response));
 
         if (strpos($request->headers->get('Accept'), 'text/html') === false) {
+            return $response;
+        }
+
+        $response->setContent($this->linkify($response));
+        if($request->getRequestUri() === '/'){
+            $response->setContent(view('welcome', ['request' => $request, 'response' => $response]));
+            $response->headers->set('Content-Type', 'text/html');
             return $response;
         }
 

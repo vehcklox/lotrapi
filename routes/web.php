@@ -11,6 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ApiController@index')->middleware('\App\Http\Middleware\ApiCheck::class');

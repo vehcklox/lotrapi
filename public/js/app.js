@@ -13699,24 +13699,6 @@ module.exports = __webpack_require__(36);
 
 __webpack_require__(13);
 
-__webpack_require__(5);
-
-var axiosConfig = {
-    headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-    }
-};
-
-window.apiRequest = function apiGetRequest(customUri) {
-    axios.get("http://lotrapi.test" + '/api/v1' + customUri, axiosConfig).then(function (response) {
-        var apiDisplay = document.getElementById('apiSpan');
-        var data = response.data;
-        console.log(data);
-        apiDisplay.innerHTML = data;
-    });
-};
-
 /***/ }),
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
