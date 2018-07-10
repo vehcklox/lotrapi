@@ -24,6 +24,13 @@ class ApiCheck
             return $response;
         }
 
+        $response->setContent($this->linkify($response));
+        if($request->getRequestUri() === '/'){
+            $response->setContent(view('welcome', ['request' => $request, 'response' => $response]));
+            $response->headers->set('Content-Type', 'text/html');
+            return $response;
+        }
+
         $response->setContent(view('api', ['request' => $request, 'response' => $response]));
         $response->headers->set('Content-Type', 'text/html');
 
