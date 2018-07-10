@@ -88,13 +88,14 @@
 <script>
     $(document).ready(
         function () {
-            window.apiRequest('/characters');
+            window.apiRequest('characters');
         }
     )
     $(".api-get").click(
         function(event) {
+            let query = document.getElementById("query-data").value;
             event.preventDefault();
-            window.apiRequest('/characters');
+            window.apiRequest(query);
         }
     );
 </script>

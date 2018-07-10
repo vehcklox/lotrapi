@@ -17,11 +17,11 @@ let axiosConfig = {
 };
 
 window.apiRequest = function apiGetRequest(customUri) {
-    axios.get(process.env.MIX_APP_URL + '/api/v1' + customUri, axiosConfig)
+    axios.get(process.env.MIX_APP_URL + '/api/v1/' + customUri, axiosConfig)
         .then(function (response) {
             let apiDisplay = document.getElementById('apiSpan');
             let data = response.data;
             console.log(data);
-            apiDisplay.innerHTML=data;
+            apiDisplay.innerHTML=JSON.stringify(data, null, 4);
         })
 }

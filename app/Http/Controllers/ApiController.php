@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Character;
 use Illuminate\Http\Request;
 
-class CharacterController extends Controller
+class ApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +13,27 @@ class CharacterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function getAll(Request $request, $model)
     {
-        $characters = \App\Character::with(['languages:name', 'books:title', 'films:title'])->get();
-        $response = response()->json($characters, 200);
+        if($model === 'characters'){
+            $characters = \App\Character::with(['languages:name', 'books:title', 'films:title'])->get();
+            $response = response()->json(["count"=>$characters->count(),"results"=>$characters], 200);
+        } elseif($model === 'realms'){
+            $realms = \App\Realm::get();
+            $response = response()->json(["count"=>$realms->count(),"results"=>$realms], 200);
+        }
+        return $response;
+    }
+
+    public function getOne(Request $request, $model, $id)
+    {
+        if($model === 'characters') {
+            $characters = \App\Character::with(['languages:name', 'books:title', 'films:title'])->where('id', $id)->get();
+            $response = response()->json($characters, 200);
+        } elseif($model === 'realms'){
+            $realms = \App\Realm::where('id', $id)->get();
+            $response = response()->json($realms, 200);
+        }
         return $response;
     }
 

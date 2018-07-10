@@ -18,7 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'v1', 'middleware' => '\App\Http\Middleware\ApiCheck::class'], function() {
-    Route::resource('characters', 'CharacterController', [
-        'except' => ['edit', 'create']
-    ]);
+    Route::get('/{model}', 'ApiController@getAll');
+    Route::get('/{model}/{id}', 'ApiController@getOne');
 });
