@@ -41,7 +41,7 @@ class ApiCheck
     protected function prettify(Response $response)
     {
         if ($response->headers->get('Content-Type') == 'application/json') {
-            return trim(json_encode(json_decode($response->getContent()), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES), '[]');
+            return trim(json_encode(json_decode($response->getContent()), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE), '[]');
         }
         return $response->getContent();
     }
