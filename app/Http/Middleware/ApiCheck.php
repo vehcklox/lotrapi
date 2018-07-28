@@ -33,8 +33,6 @@ class ApiCheck
 
         $response->setContent(view('api', ['request' => $request, 'response' => $response]));
         $response->headers->set('Content-Type', 'text/html');
-
-        $response->setContent($this->linkify($response));
         return $response;
     }
 

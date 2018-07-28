@@ -19,7 +19,8 @@ class ApiController extends Controller
             $characters = \App\Character::with(['languages:name', 'books:title', 'films:title'])->get();
             $response = response()->json(["count"=>$characters->count(),"results"=>$characters], 200);
         } elseif($model === 'realms'){
-            $realms = \App\Realm::get();
+            $realms = \App\Realm::with(['characters'])->get()->makeVisible('url');
+            dd($realms);
             $response = response()->json(["count"=>$realms->count(),"results"=>$realms], 200);
         }
         return $response;

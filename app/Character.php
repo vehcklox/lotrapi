@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Character extends Model
 {
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at', 'url'];
+
+    protected $appends = array('url');
 
     public function getRealmAttribute($value) {
         return env('APP_URL') .'/api/v1/realms/' . $value;
@@ -26,7 +28,7 @@ class Character extends Model
 
     public function realm()
     {
-        return $this->belongsTo('App\Realm', 'realm', 'id');
+        return $this->belongsTo('App\Realm', 'realm', 'id')->select('id');
     }
 
     public function languages()
@@ -42,5 +44,10 @@ class Character extends Model
     public function films()
     {
         return $this->belongsToMany('App\Film', 'character_film');
+    }
+
+    public function getUrlAttribute() {
+        $id = $this->id;
+        return env('APP_URL') .'/api/v1/characters/' . $id;
     }
 }
