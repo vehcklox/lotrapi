@@ -13,8 +13,17 @@ class Realm extends Model
         return env('APP_URL') .'/api/v1/cities/' . $value;
     }
 
+    public function getInhabitantsAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+//
+//    public function getCharactersAttribute($value) {
+//        return env('APP_URL') .'/api/v1/group/' . $value;
+//    }
+
     public function characters()
     {
-        return $this->hasMany('App\Character', 'id')->select('id');
+        return $this->hasMany('App\Character', 'id')->select('id', 'name');
     }
 }

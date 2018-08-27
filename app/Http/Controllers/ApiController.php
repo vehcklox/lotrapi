@@ -16,11 +16,18 @@ class ApiController extends Controller
     public function getAll(Request $request, $model)
     {
         if($model === 'characters'){
-            $characters = \App\Character::with(['languages:name', 'books:title', 'films:title'])->get();
-            $response = response()->json(["count"=>$characters->count(),"results"=>$characters], 200);
+            $characters = \App\Character::with(['languages:name', 'books:books.id', 'films:films.id'])->get()->toArray();
+            $response = response()->json(["count"=>count($characters),"results"=>$characters], 200);
         } elseif($model === 'realms'){
-            $realms = \App\Realm::with(['characters'])->get()->makeVisible('url');
-            dd($realms);
+            $realms = \App\Realm::get();
+            foreach ($realms as $realm) {
+                $character_array= array();
+                $characters = \App\Character::where('realm', $realm->id)->get();
+                foreach ($characters as $character) {
+                    array_push($character_array, env('APP_URL') .'/api/v1/characters/' .$character->id);
+                }
+                $realm->characters = $character_array;
+            }
             $response = response()->json(["count"=>$realms->count(),"results"=>$realms], 200);
         }
         return $response;

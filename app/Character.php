@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Character extends Model
 {
-    protected $hidden = ['created_at', 'updated_at', 'url'];
+    protected $hidden = ['created_at', 'updated_at'];
 
     protected $appends = array('url');
 
