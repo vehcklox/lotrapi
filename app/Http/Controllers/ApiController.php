@@ -78,10 +78,14 @@ class ApiController extends Controller
 
                 $languages_array = array();
                 $languages = $character->languages;
-                dd($languages);
+                foreach ($languages as $language) {
+                    array_push($languages_array, env('APP_URL') .'/api/v1/languages/' .$language->id);
+                }
 
+                unset($character->languages);
                 unset($character->films);
                 unset($character->books);
+                $character->languages = $languages_array;
                 $character->films = $films_array;
                 $character->books = $books_array;
             }
