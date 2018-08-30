@@ -38,12 +38,12 @@ class Character extends Model
 
     public function books()
     {
-        return $this->belongsToMany('App\Book', 'book_character');
+        return $this->belongsToMany('App\Book', 'book_character')->select('books.id');
     }
 
     public function films()
     {
-        return $this->belongsToMany('App\Film', 'character_film');
+        return $this->belongsToMany('App\Film', 'character_film')->select('films.id');
     }
 
     public function getUrlAttribute() {
