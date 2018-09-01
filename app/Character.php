@@ -46,6 +46,11 @@ class Character extends Model
         return $this->belongsToMany('App\Film', 'character_film')->select('films.id');
     }
 
+    public function species()
+    {
+        return $this->belongsTo('App\Species', 'species', 'id')->select('id');
+    }
+
     public function getUrlAttribute() {
         $id = $this->id;
         return env('APP_URL') .'/api/v1/characters/' . $id;
