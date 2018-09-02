@@ -19,11 +19,11 @@ class Character extends Model
     }
 
     public function getRaceAttribute($value) {
-        return env('APP_URL') .'/api/v1/race/' . $value;
+        return env('APP_URL') .'/api/v1/races/' . $value;
     }
 
     public function getGroupAttribute($value) {
-        return env('APP_URL') .'/api/v1/group/' . $value;
+        return env('APP_URL') .'/api/v1/groups/' . $value;
     }
 
     public function realm()
