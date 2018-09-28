@@ -8,7 +8,7 @@ trait LanguagesTrait
 {
     public function languagesAll()
     {
-        $languages = \App\Language::paginate();
+        $languages = \App\Language::paginate(10);
         foreach ($languages as $language) {
             $language_id = $language->id;
             $character_array = array();

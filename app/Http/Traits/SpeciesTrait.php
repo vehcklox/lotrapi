@@ -8,7 +8,7 @@ trait SpeciesTrait
 {
     public function speciesAll()
     {
-        $species = \App\Species::paginate();
+        $species = \App\Species::paginate(10);
         foreach ($species as $class) {
             $character_array = array();
             $characters = \App\Character::where('species', $class->id)->get();

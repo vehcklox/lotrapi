@@ -8,7 +8,7 @@ trait CharactersTrait
 {
     public function charactersAll()
     {
-        $characters = \App\Character::paginate();
+        $characters = \App\Character::paginate(10);
         foreach ($characters as $character) {
             $films_array = array();
             $films = $character->films;

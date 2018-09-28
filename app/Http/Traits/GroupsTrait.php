@@ -8,7 +8,7 @@ trait GroupsTrait
 {
     public function groupsAll()
     {
-        $groups = \App\CharacterGroup::paginate();
+        $groups = \App\CharacterGroup::paginate(10);
         foreach ($groups as $group) {
             $character_array = array();
             $characters = \App\Character::where('species', $group->id)->get();

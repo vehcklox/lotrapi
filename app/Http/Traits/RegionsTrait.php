@@ -8,7 +8,7 @@ trait RegionsTrait
 {
     public function regionsAll()
     {
-        $regions = \App\Region::paginate();
+        $regions = \App\Region::paginate(10);
         foreach ($regions as $region) {
             $inhabitants_array = array();
             $inhabitants = json_decode($region->inhabitants);

@@ -8,7 +8,7 @@ trait CitiesTrait
 {
     public function citiesAll()
     {
-        $cities = \App\City::paginate();
+        $cities = \App\City::paginate(10);
         foreach ($cities as $city) {
             $inhabitants_array = array();
             $inhabitants = json_decode($city->inhabitants);
