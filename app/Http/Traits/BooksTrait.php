@@ -8,7 +8,7 @@ trait BooksTrait
 {
     public function booksAll()
     {
-        $books = \App\Book::get();
+        $books = \App\Book::paginate();
         foreach ($books as $book) {
             $book_id = $book->id;
             $character_array = array();

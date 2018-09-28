@@ -8,7 +8,7 @@ trait RacesTrait
 {
     public function racesAll()
     {
-        $races = \App\Race::get();
+        $races = \App\Race::paginate();
         foreach ($races as $race) {
             $character_array = array();
             $characters = \App\Character::where('species', $race->id)->get();

@@ -8,7 +8,7 @@ trait RealmsTrait
 {
     public function realmsAll()
     {
-        $realms = \App\Realm::get();
+        $realms = \App\Realm::paginate();
         foreach ($realms as $realm) {
             $character_array = array();
             $characters = \App\Character::where('realm', $realm->id)->get();

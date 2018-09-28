@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Character;
+use App\Http\Resources\ApiCollection;
 use App\Http\Traits\BooksTrait;
 use App\Http\Traits\CharactersTrait;
 use App\Http\Traits\CitiesTrait;
@@ -37,47 +38,27 @@ class ApiController extends Controller
     public function getAll(Request $request, $model)
     {
         if ($model === 'books') {
-            $books = $this->booksAll();
-            $response = response()
-                ->json(["count" => count($books), "results" => $books], 200);
+            $data = $this->booksAll();
         } elseif ($model === 'characters') {
-            $characters = $this->charactersAll();
-            $response = response()
-                ->json(["count" => count($characters), "results" => $characters], 200);
+            $data = $this->charactersAll();
         } elseif ($model === 'cities') {
-            $cities = $this->citiesAll();
-            $response = response()
-                ->json(["count" => $cities->count(), "results" => $cities]);
+            $data = $this->citiesAll();
         } elseif ($model === 'films') {
-            $films = $this->filmsAll();
-            $response = response()
-                ->json(["count" => $films->count(), "results" => $films]);
+            $data = $this->filmsAll();
         } elseif ($model === 'groups') {
-            $groups = $this->groupsAll();
-            $response = response()
-                ->json(["count" => $groups->count(), "results" => $groups]);
+            $data = $this->groupsAll();
         } elseif ($model === 'languages') {
-            $languages = $this->languagesAll();
-            $response = response()
-                ->json(["count" => $languages->count(), "results" => $languages]);
+            $data = $this->languagesAll();
         } elseif ($model === 'races') {
-            $races = $this->racesAll();
-            $response = response()
-                ->json(["count" => $races->count(), "results" => $races]);
+            $data = $this->racesAll();
         } elseif ($model === 'realms') {
-            $realms = $this->realmsAll();
-            $response = response()
-                ->json(["count" => $realms->count(), "results" => $realms], 200);
+            $data = $this->realmsAll();
         } elseif ($model === 'regions') {
-            $regions = $this->regionsAll();
-            $response = response()
-                ->json(["count" => $regions->count(), "results" => $regions], 200);
+            $data = $this->regionsAll();
         } elseif ($model === 'species') {
-            $species = $this->speciesAll();
-            $response = response()
-                ->json(["count" => $species->count(), "results" => $species]);
+            $data = $this->speciesAll();
         }
-        return $response;
+        return new ApiCollection($data);
     }
 
     public function getOne(Request $request, $model, $id)
