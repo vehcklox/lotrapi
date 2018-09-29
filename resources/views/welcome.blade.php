@@ -54,7 +54,7 @@
             <form action="" method="get">
                 <div class="input-group input-group-lg mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="base-url">https://lotr.co/api/v1/</span>
+                        <span class="input-group-text" id="base-url">https://lotrapi.co/api/v1/</span>
                     </div>
                     <input type="text" class="form-control" name="query-data" id="query-data" placeholder="characters/" aria-describedby="query-data">
                     <div class="input-group-append">
