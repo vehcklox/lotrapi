@@ -11,30 +11,30 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="navbar-collapse collapse w-100 order-3 order-md-0 dual-collapse2">
-        <ul class="navbar-nav nav-pills mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Tweet</a>
-            </li>
-        </ul>
-    </div>
+    {{--<div class="navbar-collapse collapse w-100 order-3 order-md-0 dual-collapse2">--}}
+        {{--<ul class="navbar-nav nav-pills mr-auto">--}}
+            {{--<li class="nav-item">--}}
+                {{--<a class="nav-link" href="#">Tweet</a>--}}
+            {{--</li>--}}
+        {{--</ul>--}}
+    {{--</div>--}}
     <div class="mx-auto order-0">
         <a class="navbar-brand mx-auto" href="#">LOTR API</a>
     </div>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse collapse w-100 order-1 dual-collapse2">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Documentation</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
-        </ul>
-    </div>
+    {{--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">--}}
+        {{--<span class="navbar-toggler-icon"></span>--}}
+    {{--</button>--}}
+    {{--<div class="navbar-collapse collapse w-100 order-1 dual-collapse2">--}}
+        {{--<ul class="navbar-nav ml-auto">--}}
+            {{--<li class="nav-item">--}}
+                {{--<a class="nav-link" href="#">Documentation</a>--}}
+            {{--</li>--}}
+            {{--<li class="nav-item">--}}
+                {{--<a class="nav-link" href="#">About</a>--}}
+            {{--</li>--}}
+        {{--</ul>--}}
+    {{--</div>--}}
 </nav>
 <div class="container api-info my-5">
     <div class="row justify-content-center">
