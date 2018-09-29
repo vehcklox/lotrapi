@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </form>
-            <p class="api-info">Try typing <span class="text-white hint">characters/2/</span> or <span class="text-white hint">realms/3/</span> or <span class="text-white hint">books/1/</span></p>
+            <p class="api-info">Try typing <a href="#" class="text-white hint">characters/2/</a> or <a href="#" class="text-white hint">realms/3/</a> or <a href="#" class="text-white hint">books/1/</a></p>
         </div>
     </div>
 </div>
