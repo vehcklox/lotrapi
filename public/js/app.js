@@ -13709,7 +13709,7 @@ var axiosConfig = {
 };
 
 window.apiRequest = function apiGetRequest(customUri) {
-    axios.get("http://lotrapi.test" + '/api/v1/' + customUri, axiosConfig).then(function (response) {
+    axios.get("https://lotrapi.co" + '/api/v1/' + customUri, axiosConfig).then(function (response) {
         var apiDisplay = document.getElementById('apiSpan');
         var data = response.data;
         apiDisplay.innerHTML = JSON.stringify(data, null, 4);
