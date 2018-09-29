@@ -56,12 +56,13 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="base-url">https://lotr.app/api/v1/</span>
                     </div>
-                    <input type="text" class="form-control" name="query-data" id="query-data" aria-describedby="query-data">
+                    <input type="text" class="form-control" name="query-data" id="query-data" placeholder="characters/" aria-describedby="query-data">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary api-get" type="submit" value="submit">Submit</button>
                     </div>
                 </div>
             </form>
+            <p><small>Try typing characters/2/ or realms/3/ or books/1/</small></p>
         </div>
     </div>
 </div>
