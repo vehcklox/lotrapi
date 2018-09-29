@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </form>
-            <p><small>Try typing characters/2/ or realms/3/ or books/1/</small></p>
+            <p class="api-info">Try typing <span class="text-white hint">characters/2/</span> or <span class="text-white hint">realms/3/</span> or <span class="text-white hint">books/1/</span></p>
         </div>
     </div>
 </div>
@@ -94,6 +94,14 @@
     )
     $(".api-get").click(
         function(event) {
+            let query = document.getElementById("query-data").value;
+            event.preventDefault();
+            window.apiRequest(query);
+        }
+    );
+    $(".hint").click(
+        function(event) {
+            document.getElementById("query-data").value = event.target.innerHTML;
             let query = document.getElementById("query-data").value;
             event.preventDefault();
             window.apiRequest(query);

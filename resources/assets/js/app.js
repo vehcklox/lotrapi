@@ -21,7 +21,6 @@ window.apiRequest = function apiGetRequest(customUri) {
         .then(function (response) {
             let apiDisplay = document.getElementById('apiSpan');
             let data = response.data;
-            console.log(data);
             apiDisplay.innerHTML=JSON.stringify(data, null, 4);
         })
 }
