@@ -24,17 +24,22 @@ class ApiCheck
             return $response;
         }
 
+        $response->setContent($this->linkify($response));
+        if($request->getRequestUri() === '/'){
+            $response->setContent(view('welcome', ['request' => $request, 'response' => $response]));
+            $response->headers->set('Content-Type', 'text/html');
+            return $response;
+        }
+
         $response->setContent(view('api', ['request' => $request, 'response' => $response]));
         $response->headers->set('Content-Type', 'text/html');
-
-        $response->setContent($this->linkify($response));
         return $response;
     }
 
     protected function prettify(Response $response)
     {
         if ($response->headers->get('Content-Type') == 'application/json') {
-            return trim(json_encode(json_decode($response->getContent()), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES), '[]');
+            return trim(json_encode(json_decode($response->getContent()), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE), '[]');
         }
         return $response->getContent();
     }

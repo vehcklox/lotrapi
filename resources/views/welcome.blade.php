@@ -11,30 +11,30 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="navbar-collapse collapse w-100 order-3 order-md-0 dual-collapse2">
-        <ul class="navbar-nav nav-pills mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Tweet</a>
-            </li>
-        </ul>
-    </div>
+    {{--<div class="navbar-collapse collapse w-100 order-3 order-md-0 dual-collapse2">--}}
+        {{--<ul class="navbar-nav nav-pills mr-auto">--}}
+            {{--<li class="nav-item">--}}
+                {{--<a class="nav-link" href="#">Tweet</a>--}}
+            {{--</li>--}}
+        {{--</ul>--}}
+    {{--</div>--}}
     <div class="mx-auto order-0">
         <a class="navbar-brand mx-auto" href="#">LOTR API</a>
     </div>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse collapse w-100 order-1 dual-collapse2">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Documentation</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
-        </ul>
-    </div>
+    {{--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">--}}
+        {{--<span class="navbar-toggler-icon"></span>--}}
+    {{--</button>--}}
+    {{--<div class="navbar-collapse collapse w-100 order-1 dual-collapse2">--}}
+        {{--<ul class="navbar-nav ml-auto">--}}
+            {{--<li class="nav-item">--}}
+                {{--<a class="nav-link" href="#">Documentation</a>--}}
+            {{--</li>--}}
+            {{--<li class="nav-item">--}}
+                {{--<a class="nav-link" href="#">About</a>--}}
+            {{--</li>--}}
+        {{--</ul>--}}
+    {{--</div>--}}
 </nav>
 <div class="container api-info my-5">
     <div class="row justify-content-center">
@@ -54,14 +54,15 @@
             <form action="" method="get">
                 <div class="input-group input-group-lg mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="base-url">https://lotr.app/api/v1/</span>
+                        <span class="input-group-text" id="base-url">https://lotrapi.co/api/v1/</span>
                     </div>
-                    <input type="text" class="form-control" name="query-data" id="query-data" aria-describedby="query-data">
+                    <input type="text" class="form-control" name="query-data" id="query-data" placeholder="characters/" aria-describedby="query-data">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary api-get" type="submit" value="submit">Submit</button>
                     </div>
                 </div>
             </form>
+            <p class="api-info">Try typing <a href="#" class="text-white hint">characters/2</a> or <a href="#" class="text-white hint">realms/3</a> or <a href="#" class="text-white hint">books/1</a></p>
         </div>
     </div>
 </div>
@@ -93,6 +94,14 @@
     )
     $(".api-get").click(
         function(event) {
+            let query = document.getElementById("query-data").value;
+            event.preventDefault();
+            window.apiRequest(query);
+        }
+    );
+    $(".hint").click(
+        function(event) {
+            document.getElementById("query-data").value = event.target.innerHTML;
             let query = document.getElementById("query-data").value;
             event.preventDefault();
             window.apiRequest(query);
